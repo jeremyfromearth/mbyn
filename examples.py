@@ -25,3 +25,4 @@ D = (
 )
 
 print mbyn.add([A, B])
+print mbyn.initialize(4, 5, 1)

@@ -5,6 +5,11 @@ Matrix arguments should be formatted as such:
     Row matrix (list): [[x, y, z]]
     Row matrix (tuple): ((x, y, z),) (note the extra comma, this is required)
     2x3 matrix: [[a, b, c], [x, y, z]]
+
+Generally error handling is pretty light. Matrices are expected to be compatible \
+however appropriate to the operation they are being supplied to. There are a number \
+of validation methods that should aid in testing for compatability in cases where \
+formatting integrity is unknown. 
 '''
 
 '''
@@ -85,8 +90,16 @@ Returns the transpose of the supplied matrix
 The transpose of a matrix essentially reverses the row and columns of a matrix such that A[i][j] = B[j][i]
 '''
 def getTranspose(matrix):
-    print 'getTranspose() not implemented'
-    pass
+    result = []
+    num_rows = len(matrix[0])
+    num_cols = len(matrix)
+    
+    for i in xrange(0, num_rows):
+        result.append([])
+        for j in xrange(0, num_cols):
+            result[i].append(matrix[j][i]) 
+
+    return result
 
 '''
 Creates a new matrix
@@ -109,8 +122,9 @@ def isSquare(matrix):
 '''
 Multiplies a list of matrices together
 '''
-def multiply(matrices):
+def multiply(a, b):
     print 'multiply() not implemented'
+    pass
 
 '''
 Returns a boolean indicating that the matrix is valid
@@ -128,4 +142,3 @@ def validate(matrix):
         if len(row) is not l:
             return False
     return True
- 

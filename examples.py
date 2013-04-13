@@ -24,5 +24,11 @@ D = (
         [34, 34, 12, 34]
 )
 
-print mbyn.add([A, B])
-print mbyn.initialize(4, 5, 1)
+E = [
+        [1, 2, -1],
+        [0, 3, 7]
+]
+
+#print mbyn.add([A, B])
+#print mbyn.initialize(4, 5, 1)
+print mbyn.getTranspose(E)

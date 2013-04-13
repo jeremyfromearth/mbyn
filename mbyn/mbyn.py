@@ -2,9 +2,17 @@
 m-by-n
 A module for linear algebra matrix operations
 Matrix arguments should be formatted as such:
-    Row matrix (list): [[x, y, z]]
-    Row matrix (tuple): ((x, y, z),) (note the extra comma, this is required)
-    2x3 matrix: [[a, b, c], [x, y, z]]
+    Row matrix (list): 
+        [[x, y, z]]
+    Row matrix (tuple): 
+        ((x, y, z),) (note the extra comma, this is required)
+    Column matrix (list): 
+        [[x1], [x2], [x3]]
+    2x3 matrix (list): 
+        [[a, b, c], [x, y, z]]
+    4x4 matrix (tuple): 
+        ((a, b, c, d), (e, f, g, h), (i, j, k, l), (m, n, o, p))
+    
 
 Generally, error handling is pretty light. Matrices are expected to be compatible 
 however appropriate to the operation they are being supplied to. There are a number

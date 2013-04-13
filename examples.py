@@ -29,6 +29,7 @@ E = [
         [0, 3, 7]
 ]
 
-#print mbyn.add([A, B])
-#print mbyn.initialize(4, 5, 1)
+print mbyn.add([A, B])
+print mbyn.initialize(4, 5, 1)
 print mbyn.scaleBy(E, .5)
+print mbyn.clone(E)

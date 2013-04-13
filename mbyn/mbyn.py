@@ -35,6 +35,17 @@ def add(matrices):
     return result
 
 '''
+Clones a matrix
+'''
+def clone(matrix):
+    result = []
+    for i in xrange(0, len(matrix)):
+        result.append([])
+        for j in xrange(0, len(matrix[i])):
+            result[i].append(matrix[i][j])
+    return result
+
+'''
 Fills in a missing columns of a matrix with supplied "value" param
 Rows of the supplied matrix must be lists (mutable) as this function will add indices to short rows
 '''
@@ -128,7 +139,6 @@ def multiply(a, b):
 
 '''
 Multiplies every value in the matrix by the supplied scalar
-Returns the original matrix with updated values
 '''
 def scaleBy(matrix, scalar):
     num_rows = len(matrix)
@@ -137,7 +147,6 @@ def scaleBy(matrix, scalar):
         for j in xrange(0, num_cols):
             n = matrix[i][j];
             matrix[i][j] *= scalar
-    return matrix
 
 '''
 Returns a boolean indicating that the matrix is valid

@@ -31,4 +31,4 @@ E = [
 
 #print mbyn.add([A, B])
 #print mbyn.initialize(4, 5, 1)
-print mbyn.getTranspose(E)
+print mbyn.scaleBy(E, .5)

@@ -6,7 +6,7 @@ Matrix arguments should be formatted as such:
     Row matrix (tuple): ((x, y, z),) (note the extra comma, this is required)
     2x3 matrix: [[a, b, c], [x, y, z]]
 
-Generally error handling is pretty light. Matrices are expected to be compatible 
+Generally, error handling is pretty light. Matrices are expected to be compatible 
 however appropriate to the operation they are being supplied to. There are a number
 of validation methods that should aid in testing for compatability in cases where
 formatting integrity is unknown. 
@@ -125,6 +125,19 @@ Multiplies a list of matrices together
 def multiply(a, b):
     print 'multiply() not implemented'
     pass
+
+'''
+Multiplies every value in the matrix by the supplied scalar
+Returns the original matrix with updated values
+'''
+def scaleBy(matrix, scalar):
+    num_rows = len(matrix)
+    for i in xrange(0, num_rows):
+        num_cols = len(matrix[i])
+        for j in xrange(0, num_cols):
+            n = matrix[i][j];
+            matrix[i][j] *= scalar
+    return matrix
 
 '''
 Returns a boolean indicating that the matrix is valid

@@ -6,9 +6,9 @@ Matrix arguments should be formatted as such:
     Row matrix (tuple): ((x, y, z),) (note the extra comma, this is required)
     2x3 matrix: [[a, b, c], [x, y, z]]
 
-Generally error handling is pretty light. Matrices are expected to be compatible \
-however appropriate to the operation they are being supplied to. There are a number \
-of validation methods that should aid in testing for compatability in cases where \
+Generally error handling is pretty light. Matrices are expected to be compatible 
+however appropriate to the operation they are being supplied to. There are a number
+of validation methods that should aid in testing for compatability in cases where
 formatting integrity is unknown. 
 '''
 

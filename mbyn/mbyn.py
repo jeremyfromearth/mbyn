@@ -146,6 +146,24 @@ def multiply(a, b):
     pass
 
 '''
+Returns a well formatted string representation of a matrix
+'''
+def toString(matrix):
+    result = ''
+    num_rows = len(matrix)
+    for i in xrange(0, num_rows):
+        num_cols = len(matrix[i])
+        for j in xrange(0, num_cols):
+            result += str(matrix[i][j])
+            if j < num_cols - 1:
+                result += ', '
+        
+        if i < num_rows - 1:
+            result += '\n'
+    
+    return result
+
+'''
 Multiplies every value in the matrix by the supplied scalar
 '''
 def scaleBy(matrix, scalar):

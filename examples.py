@@ -31,5 +31,6 @@ E = [
 
 print mbyn.add([A, B])
 print mbyn.initialize(4, 5, 1)
-print mbyn.scaleBy(E, .5)
-print mbyn.clone(E)
+F = mbyn.clone(E)
+mbyn.scaleBy(F, 2)
+print mbyn.toString(F)

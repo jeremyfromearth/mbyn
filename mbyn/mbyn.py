@@ -100,7 +100,7 @@ def getIdentityMatrix(n):
 Returns the inverse of a supplied matrix
 The inverse of matrix A is the matrix B such that A*B = the identity matrix
 '''
-def getInvers(matrix):
+def getInverse(matrix):
     print 'getInverse() not implemented'
     pass
 

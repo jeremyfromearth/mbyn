@@ -174,6 +174,9 @@ def scaleBy(matrix, scalar):
             n = matrix[i][j];
             matrix[i][j] *= scalar
 
+def submatrix(matrix, row, col):
+    print 'submatrix not implemented'
+
 '''
 Returns a boolean indicating that the matrix is valid
 A valid matrix is one in which an equal number of columns is defined for each row

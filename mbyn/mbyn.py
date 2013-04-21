@@ -39,6 +39,7 @@ def add(matrices):
             for col in xrange(0, len(result[row])):
                 result[row][col] += matrix[row][col]
                 pass
+    
     return result
 
 '''
@@ -50,6 +51,7 @@ def clone(matrix):
         result.append([])
         for j in xrange(0, len(matrix[i])):
             result[i].append(matrix[i][j])
+    
     return result
 
 '''
@@ -67,6 +69,7 @@ def fill(matrix, value=0):
         if len(matrix[row]) < max:
             while len(matrix[row]) < max:
                 matrix[row].append(value)
+    
     return matrix
 
 '''
@@ -76,6 +79,7 @@ def getColumn(matrix, n):
     result = []
     for i in xrange(0, len(matrix)):
         result.append(matrix[i][n])
+    
     return result
 
 '''
@@ -84,7 +88,6 @@ Returns the conjugate transpose of the supplied matrix
 def getConjugateTranspose(matrix):
     print 'getConjugateTranspose() not implemented'
     pass
-
 
 '''
 Creates an identity an matrix of dimension n
@@ -102,6 +105,7 @@ def getIdentityMatrix(n):
                 result[i].append(0)
             j += 1
         i += 1
+    
     return result
 
 '''
@@ -125,6 +129,7 @@ def getTranspose(matrix):
         result.append([])
         for j in xrange(0, num_cols):
             result[i].append(matrix[j][i]) 
+    
     return result
 
 '''
@@ -136,6 +141,7 @@ def initialize(rows, columns, value=0):
         result.append([])
         for c in xrange(0, columns):
             result[r].append(value)
+    
     return result
 
 '''
@@ -150,8 +156,8 @@ Multiplies two matrices
 If a is m x n, b should be n x p, otherwise None is returned
 This method is split into a couple of steps
     * Check for multiplicative compatibility
-    * Make a list of the columns
-    * Multiply the rows by the columns
+    * Make a list of the columns of matrix b
+    * Multiply the rows of matrix a by the list of columns
 '''
 def multiply(a, b):
     if len(a[0]) is not len(b):
@@ -176,9 +182,11 @@ Will return None if the row and column are not the same length
 def multiplyRowByColumn(row, column):
     if len(row) is not len(column):
         return None
+    
     result = 0
     for i in xrange(0, len(row)):
         result += row[i] * column[i]
+    
     return result
 
 '''

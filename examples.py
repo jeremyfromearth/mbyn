@@ -1,16 +1,28 @@
 from mbyn import mbyn 
 
+'''
+A 3x3 matrix comprised of tuples
+'''
 A = (
         (0, 1, 3),
         (1, 2, 3),
         (5, 4, 3)
 )
 
-B = (
-        (0, 1, 3),
-        (3, 5, 6),
-        (1, 3, 9)
-)
+print 'isSquare()'
+print 'A is a sqaure matrix: %s' % mbyn.isSquare(A)
+
+'''
+Similarly a 3x3 matrix comprised of lists
+'''
+B = [
+        [0, 1, 3],
+        [3, 5, 6],
+        [1, 3, 9]
+]
+
+print 'isSqaure()'
+print 'B is a square matrix: %s' % mbyn.isSquare(B)
 
 C = (
         (2, 8, 5),
@@ -18,11 +30,17 @@ C = (
         (1, 1, 0)
 )
 
+print 'add()'
+print 'A + B + C =\n%s' %  mbyn.toString(mbyn.add([A, B, C]))
+
 D = (
         [1, 4, 32],
         [0, 0],
         [34, 34, 12, 34]
 )
+
+print 'fill()'
+print mbyn.toString(mbyn.fill(D, 10))
 
 E = [
         [1, 2, -1],
@@ -35,10 +53,5 @@ F = [
         [20, 1, 4]
 ]
 
-G = [
-        [2, 1],
-        [4, 3],
-        [1, 2]
-]
-
-print mbyn.multiply(B, C)
+print 'multiply()'
+print mbyn.toString(mbyn.multiply(E, F))

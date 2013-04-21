@@ -3,17 +3,16 @@ m-by-n
 A module for linear algebra matrix operations
 Matrix arguments should be formatted as such:
     Row matrix (list): 
-        [[x, y, z]]
+        [x, y, z]
     Row matrix (tuple): 
-        ((x, y, z),) (note the extra comma, this is required)
+        (x, y, z) (note the extra comma, this is required)
     Column matrix (list): 
-        [[x1], [x2], [x3]]
+        [x1, x2, x3]
     2x3 matrix (list): 
         [[a, b, c], [x, y, z]]
     4x4 matrix (tuple): 
         ((a, b, c, d), (e, f, g, h), (i, j, k, l), (m, n, o, p))
     
-
 Generally, error handling is pretty light. Matrices are expected to be compatible 
 however appropriate to the operation they are being supplied to. There are a number
 of validation methods that should aid in testing for compatability in cases where
@@ -71,6 +70,15 @@ def fill(matrix, value=0):
     return matrix
 
 '''
+Returns a single columns of a matrix as a list
+'''
+def getColumn(matrix, n):
+    result = []
+    for i in xrange(0, len(matrix)):
+        result.append(matrix[i][n])
+    return result
+
+'''
 Returns the conjugate transpose of the supplied matrix
 '''
 def getConjugateTranspose(matrix):
@@ -117,7 +125,6 @@ def getTranspose(matrix):
         result.append([])
         for j in xrange(0, num_cols):
             result[i].append(matrix[j][i]) 
-
     return result
 
 '''
@@ -139,11 +146,40 @@ def isSquare(matrix):
     return len(matrix) is len(matrix[0])
 
 '''
-Multiplies a list of matrices together
+Multiplies two matrices 
+If a is m x n, b should be n x p, otherwise None is returned
+This method is split into a couple of steps
+    * Check for multiplicative compatibility
+    * Make a list of the columns
+    * Multiply the rows by the columns
 '''
 def multiply(a, b):
-    print 'multiply() not implemented'
-    pass
+    if len(a[0]) is not len(b):
+        return None
+
+    columns = []
+    for i in xrange(0, len(b[0])):
+        columns.append(getColumn(b, i))
+
+    result = []
+    for i in xrange(0, len(a)):
+        result.append([])
+        for j in xrange(0, len(columns)):
+            result[i].append(multiplyRowByColumn(a[i], columns[j]))
+
+    return result 
+
+'''
+Multplies a row by a columns and returns a single value as the result
+Will return None if the row and column are not the same length
+'''
+def multiplyRowByColumn(row, column):
+    if len(row) is not len(column):
+        return None
+    result = 0
+    for i in xrange(0, len(row)):
+        result += row[i] * column[i]
+    return result
 
 '''
 Returns a well formatted string representation of a matrix
@@ -174,7 +210,10 @@ def scaleBy(matrix, scalar):
             n = matrix[i][j];
             matrix[i][j] *= scalar
 
-def submatrix(matrix, row, col):
+'''
+Returns a sub matrix of the supplied matrix
+'''
+def submatrix(matrix, r1, r2, c1, c2):
     print 'submatrix not implemented'
 
 '''

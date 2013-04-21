@@ -29,8 +29,16 @@ E = [
         [0, 3, 7]
 ]
 
-print mbyn.add([A, B])
-print mbyn.initialize(4, 5, 1)
-F = mbyn.clone(E)
-mbyn.scaleBy(F, 2)
-print mbyn.toString(F)
+F = [
+        [10, 8, 2],
+        [3, 5, 10],
+        [20, 1, 4]
+]
+
+G = [
+        [2, 1],
+        [4, 3],
+        [1, 2]
+]
+
+print mbyn.multiply(B, C)

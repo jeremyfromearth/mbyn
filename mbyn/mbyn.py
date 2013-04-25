@@ -43,6 +43,13 @@ def add(matrices):
     return result
 
 '''
+Add two rows of a matrix
+Row a will be added to row b
+'''
+def addRows(matrix, a, b):
+    pass
+
+'''
 Clones a matrix
 '''
 def clone(matrix):
@@ -229,11 +236,29 @@ def scaleBy(matrix, scalar):
             n = matrix[i][j];
             matrix[i][j] *= scalar
 
+    return matrix
+
+'''
+Multiplies each value in a row by the supplied scalar
+This method directly affects the supplied matrix
+'''
+def scaleRow(matrix, row, scalar):
+    for i in xrange(0, len(matrix[row])):
+        matrix[row][i] *= scalar
+    return matrix
+
 '''
 Returns a sub matrix of the supplied matrix
 '''
 def submatrix(matrix, r1, r2, c1, c2):
     print 'submatrix not implemented'
+
+'''
+Subtract rows of a matrix
+Row a is subtracted to row b
+'''
+def subtractRows(matrix, a, b):
+    pass
 
 '''
 Returns a boolean indicating that the matrix is valid

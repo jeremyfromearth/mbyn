@@ -57,13 +57,17 @@ print 'multiply()'
 print mbyn.toString(mbyn.multiply(E, F))
 
 G = [
-        [2],
-        [4]
+        [2, 3],
+        [4, 3]
 ]
 
 H = [
-        [2]
+        [2, 6],
+        [12, 4]
 ]
 
-print mbyn.multiply(H, H)
+print 'expo()'
 print mbyn.expo(H, 2)
+
+print 'scaleRow()'
+print mbyn.scaleRow(H, 0, 4)

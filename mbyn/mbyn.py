@@ -5,7 +5,7 @@ Matrix arguments should be formatted as such:
     Row matrix (list): 
         [x, y, z]
     Row matrix (tuple): 
-        (x, y, z) (note the extra comma, this is required)
+        (x, y, z) 
     Column matrix (list): 
         [x1, x2, x3]
     2x3 matrix (list): 
@@ -52,6 +52,17 @@ def clone(matrix):
         for j in xrange(0, len(matrix[i])):
             result[i].append(matrix[i][j])
     
+    return result
+
+'''
+Raise a matrix to a power
+'''
+def expo(matrix, exponent):
+    if not isSquare(matrix): return None
+    result = []
+    for x in range(0, exponent):
+        result = multiply(matrix, matrix)
+
     return result
 
 '''

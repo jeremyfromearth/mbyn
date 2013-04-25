@@ -55,3 +55,15 @@ F = [
 
 print 'multiply()'
 print mbyn.toString(mbyn.multiply(E, F))
+
+G = [
+        [2],
+        [4]
+]
+
+H = [
+        [2]
+]
+
+print mbyn.multiply(H, H)
+print mbyn.expo(H, 2)

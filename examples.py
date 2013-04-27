@@ -62,8 +62,11 @@ G = [
 ]
 
 H = [
-        [2, 6],
-        [12, 4]
+        
+        [4, 3, 45, 21],
+        [0, 34, 22, 1],
+        [78, 34, 1, 90],
+        [90, 23, 1, 4]
 ]
 
 print 'expo()'
@@ -72,6 +75,5 @@ print mbyn.expo(H, 2)
 print 'scaleRow()'
 print mbyn.scaleRow(H, 0, 4)
 
+print 'directSum(G, H)'
 print mbyn.toString(mbyn.directSum(G, H))
-
-

@@ -8,7 +8,5 @@ This module is being written as I teach myself the ins and outs of working with 
 
 Todo
 ----
-
-* Add tests
 * Refine syntax to make methods more elegant/concise
 * Add performance profiling

@@ -38,6 +38,10 @@ class MbyNTests(unittest.TestCase):
         result = mbyn.fill(C, 1)
         self.assertEqual(result, [[0, 0, 1], [3, 3, 1]])
 
+    def test_getIdentityMatrix(self):
+        result = mbyn.getIdentityMatrix(4)
+        self.assertEqual(result, [[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])
+
     def test_isSqaure(self):
         result = mbyn.isSquare(A)
         self.assertTrue(result)

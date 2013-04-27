@@ -62,6 +62,24 @@ def clone(matrix):
     return result
 
 '''
+Returns the direct sum of two matrices
+'''
+def directSum(a, b):
+    rows = len(a) + len(b)
+    cols = len(a[0]) + len(b[0])
+    print 'rows %d, cols %d' % (rows, cols)
+    result = initialize(rows, cols)
+    for i in xrange(0, len(a)):
+        for j in xrange(0, len(a[i])):
+            result[i][j] = a[i][j]
+
+    for i in xrange(0, len(b)):
+        for j in xrange(0, len(b[i])):
+            result[len(a) + i][len(a[0]) + j] = b[i][j]
+
+    return result
+
+'''
 Raise a matrix to a power
 '''
 def expo(matrix, exponent):
@@ -206,6 +224,12 @@ def multiplyRowByColumn(row, column):
         result += row[i] * column[i]
     
     return result
+
+'''
+Partitions a matrix
+'''
+def partition(matrix, rows, cols):
+    print 'partition not implemented'
 
 '''
 Returns a well formatted string representation of a matrix

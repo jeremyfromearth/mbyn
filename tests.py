@@ -1,6 +1,7 @@
 from mbyn import mbyn
 import unittest
 
+
 class MbyNTests(unittest.TestCase):
 
     def setUp(self):

@@ -77,3 +77,9 @@ print mbyn.scaleRow(H, 0, 4)
 
 print 'directSum(G, H)'
 print mbyn.toString(mbyn.directSum(G, H))
+
+print 'swapRows(H, 0, 1)'
+print mbyn.toString(mbyn.swapRows(H, 0, 1))
+
+print mbyn.multiply(G, G)
+print mbyn.expo(G, 3)

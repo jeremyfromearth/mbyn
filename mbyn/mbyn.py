@@ -84,9 +84,9 @@ Raise a matrix to a power
 '''
 def expo(matrix, exponent):
     if not isSquare(matrix): return None
-    result = []
-    for x in range(0, exponent):
-        result = multiply(matrix, matrix)
+    result = clone(matrix) 
+    for x in range(0, exponent - 1):
+        result = multiply(matrix, result)
 
     return result
 
@@ -109,7 +109,7 @@ def fill(matrix, value=0):
     return matrix
 
 '''
-Returns a single columns of a matrix as a list
+Returns a single columns of a matrix as a list (a column vector)
 '''
 def getColumn(matrix, n):
     result = []
@@ -284,6 +284,17 @@ Row a is subtracted to row b
 def subtractRows(matrix, a, b):
     pass
 
+'''
+Swaps the rows of a matrix
+a & b should be the indices of the rows to swap
+'''
+def swapRows(matrix, a, b):
+    rowA = matrix[a]
+    rowB = matrix[b]
+    matrix[a] = rowB
+    matrix[b] = rowA
+    return matrix
+    
 '''
 Returns a boolean indicating that the matrix is valid
 A valid matrix is one in which an equal number of columns is defined for each row

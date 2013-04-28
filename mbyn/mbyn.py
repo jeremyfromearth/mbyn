@@ -19,7 +19,6 @@ of validation methods that should aid in testing for compatability in cases wher
 formatting integrity is unknown. 
 """
 
-
 def add(matrices):
     """
     Adds multiple matrices
@@ -117,6 +116,7 @@ def getColumn(matrix, n):
     for i in xrange(0, len(matrix)):
         result.append(matrix[i][n])
     return result
+
 
 def getIdentityMatrix(n):
     """
@@ -255,7 +255,6 @@ def scaleBy(matrix, scalar):
         num_cols = len(result[i])
         for j in xrange(0, num_cols):
             result[i][j] *= scalar
-
     return result 
 
 

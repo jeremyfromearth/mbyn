@@ -58,6 +58,9 @@ class MByNTests(unittest.TestCase):
         result = mbyn.isSquare(A)
         self.assertTrue(result)
 
+        result = mbyn.isSquare(B)
+        self.assertFalse(result)
+
     def test_multiply(self):
         result = mbyn.multiply(A, B)
         self.assertEqual(result, [[10, 19, 18], [12, 24, 24]])
@@ -77,6 +80,13 @@ class MByNTests(unittest.TestCase):
     def test_swapRows(self):
         result = mbyn.swapRows(A, 0, 1)
         self.assertEqual(result, [[3, 3], [2, 3]])
+
+    def test_validate(self):
+        result = mbyn.validate(A)
+        self.assertTrue(result)
+
+        result = mbyn.validate([[3, 2, 1], [3, 2]])
+        self.assertFalse(result)
 
 if __name__ == '__main__':
     unittest.main()

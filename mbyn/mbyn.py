@@ -67,7 +67,6 @@ Returns the direct sum of two matrices
 def directSum(a, b):
     rows = len(a) + len(b)
     cols = len(a[0]) + len(b[0])
-    print 'rows %d, cols %d' % (rows, cols)
     result = initialize(rows, cols)
     for i in xrange(0, len(a)):
         for j in xrange(0, len(a[i])):
@@ -253,23 +252,24 @@ def toString(matrix):
 Multiplies every value in the matrix by the supplied scalar
 '''
 def scaleBy(matrix, scalar):
-    num_rows = len(matrix)
+    result = clone(matrix) 
+    num_rows = len(result)
     for i in xrange(0, num_rows):
-        num_cols = len(matrix[i])
+        num_cols = len(result[i])
         for j in xrange(0, num_cols):
-            n = matrix[i][j];
-            matrix[i][j] *= scalar
+            result[i][j] *= scalar
 
-    return matrix
+    return result 
 
 '''
 Multiplies each value in a row by the supplied scalar
 This method directly affects the supplied matrix
 '''
-def scaleRow(matrix, row, scalar):
-    for i in xrange(0, len(matrix[row])):
-        matrix[row][i] *= scalar
-    return matrix
+def scaleRow(row, scalar):
+    result = []
+    for i in xrange(0, len(row)):
+       result.append(row[i] * scalar)
+    return result 
 
 '''
 Returns a sub matrix of the supplied matrix

@@ -73,7 +73,7 @@ print 'expo()'
 print mbyn.expo(H, 2)
 
 print 'scaleRow()'
-print mbyn.scaleRow(H, 0, 4)
+print mbyn.scaleRow(H[0], 4)
 
 print 'directSum(G, H)'
 print mbyn.toString(mbyn.directSum(G, H))

@@ -1,90 +1,87 @@
 from mbyn import mbyn 
 
-'''
-A 3x3 matrix comprised of tuples
-'''
-A = (
-        (0, 1, 3),
-        (1, 2, 3),
-        (5, 4, 3)
-)
+def main():
+    A = [
+            [8, 3, 4],
+            [21, 3, 7],
+            [3, 5, 2]
+    ]
 
-print 'isSquare()'
-print 'A is a sqaure matrix: %s' % mbyn.isSquare(A)
+    B = [
+            [5, 3, 1], 
+            [1, 9, 4],
+            [3, 6, 1]
+    ]
 
-'''
-Similarly a 3x3 matrix comprised of lists
-'''
-B = [
-        [0, 1, 3],
-        [3, 5, 6],
-        [1, 3, 9]
-]
+    C = [
+            [1, 2],
+            [3, 6],
+            [3, 1]
+    ]
 
-print 'isSqaure()'
-print 'B is a square matrix: %s' % mbyn.isSquare(B)
+    print 'A='
+    printMatrix(A)
 
-C = (
-        (2, 8, 5),
-        (1, 2, 3),
-        (1, 1, 0)
-)
+    print 'B='
+    printMatrix(B)
 
-print 'add()'
-print 'A + B + C =\n%s' %  mbyn.toString(mbyn.add([A, B, C]))
+    print 'C='
+    printMatrix(C)
 
-D = (
-        [1, 4, 32],
-        [0, 0],
-        [34, 34, 12, 34]
-)
+    print 'add([A, B])'
+    printMatrix(mbyn.add([A, B]))
 
-print 'fill()'
-print mbyn.toString(mbyn.fill(D, 10))
+    print 'addRows(A[0], A[1])'
+    print mbyn.addRows(A[0], A[1])
+    print '\n'
 
-E = [
-        [1, 2, -1],
-        [0, 3, 7]
-]
+    print 'clone(A)'
+    printMatrix(mbyn.clone(A))
 
-F = [
-        [10, 8, 2],
-        [3, 5, 10],
-        [20, 1, 4]
-]
+    print 'directSum(A, B)'
+    printMatrix(mbyn.directSum(A, B))
 
-print 'multiply()'
-print mbyn.toString(mbyn.multiply(E, F))
+    print 'expo(A, 3)'
+    printMatrix(mbyn.expo(A, 3))
 
-G = [
-        [2, 3],
-        [4, 3]
-]
+    print 'fill([[0, 2], [2, 1, 3, 4]], 21)'
+    printMatrix(mbyn.fill([[0, 2], [2, 1, 3, 4]], 9))
 
-H = [
-        
-        [4, 3, 45, 21],
-        [0, 34, 22, 1],
-        [78, 34, 1, 90],
-        [90, 23, 1, 4]
-]
+    print 'getColumn(A, 1)'
+    print mbyn.getColumn(A, 1)
+    print '\n'
 
-print 'expo()'
-print mbyn.expo(H, 2)
+    print 'getIdentityMatrix(6)'
+    printMatrix(mbyn.getIdentityMatrix(6))
+    
+    print 'getTranspose(A)'
+    printMatrix(mbyn.getTranspose(A))
+    
+    print 'initialize(5, 3, 0)'
+    printMatrix(mbyn.initialize(5, 3, 0))
 
-print 'scaleRow()'
-print mbyn.scaleRow(H[0], 4)
+    print 'isSquare(A)'
+    print mbyn.isSquare(A)
+    print '\n'
 
-print 'directSum(G, H)'
-print mbyn.toString(mbyn.directSum(G, H))
+    print 'multpily(A, B)'
+    printMatrix(mbyn.multiply(A, B))
 
-print 'swapRows(H, 0, 1)'
-print mbyn.toString(mbyn.swapRows(H, 0, 1))
+    print 'multiplyRowByColumn([3, 2, 1], [1, 4, 3])'
+    print mbyn.multiplyRowByColumn([3, 2, 1], [1, 4, 3])
+    print '\n'
 
-print 'getTranspose(E)'
-print mbyn.toString(mbyn.getTranspose(E))
+    print 'scaleBy(A, -3)'
+    printMatrix(mbyn.scaleBy(A, -3))
 
-print mbyn.multiply(G, G)
-print mbyn.expo(G, 3)
+    print 'swapRows(A, 2, 0)'
+    printMatrix(mbyn.swapRows(A, 2, 0))
 
+    print 'validate([[2, 1, 4], [2, 1]])'
+    print mbyn.validate([[2, 1, 4],[2, 1]])
 
+def printMatrix(matrix):
+    print mbyn.toString(matrix) + '\n'
+
+if __name__ == '__main__':
+    main()

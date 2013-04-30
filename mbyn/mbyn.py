@@ -17,6 +17,18 @@ Generally, error handling is pretty light. Matrices are expected to be compatibl
 however appropriate to the operation they are being supplied to. There are a number
 of validation methods that should aid in testing for compatability in cases where
 formatting integrity is unknown. 
+
+The methods in this module follow certain naming conventions. 
+Variables m and n are used to denote the dimensions of a matrix
+Variables i and j are used to denote the row index and column index of rows and columns that are iterated over
+
+For example:
+    m = len(matrix)
+    for i in xrange(0, m):
+        row = matrix[i]
+        n = len(row)
+        for j in xrange(0, n):
+            column = row[j]
 """
 
 def add(matrices):
@@ -51,8 +63,8 @@ def addRows(a, b):
     """
     result = []
     
-    m = len(a)
-    for i in xrange(0, m):
+    n = len(a)
+    for i in xrange(0, n):
         result.append(a[i] + b[i])
     return result
 
@@ -132,16 +144,16 @@ def getColumn(matrix, n):
     return result
 
 
-def getIdentityMatrix(n):
+def getIdentityMatrix(m):
     """
     Creates an identity an matrix of dimension n
     """
-    result = []
     i = 0
-    while i < n:
+    result = []
+    while i < m:
         j = 0
         result.append([])
-        while len(result[i]) < n:
+        while len(result[i]) < m:
             if i == j:
                 result[i].append(1)
             else:
@@ -180,10 +192,10 @@ def initialize(m, n, value=0):
     Creates a new matrix
     """
     result = []
-    for r in xrange(0, m):
+    for i in xrange(0, m):
         result.append([])
-        for c in xrange(0, n):
-            result[r].append(value)
+        for j in xrange(0, n):
+            result[i].append(value)
     return result
 
 
@@ -198,6 +210,7 @@ def isSquare(matrix):
         if m is not n:
             return False
     return True
+
 
 def multiply(a, b):
     """
@@ -296,14 +309,6 @@ def submatrix(matrix, r1, r2, c1, c2):
     Returns a sub matrix of the supplied matrix
     """
     print 'submatrix not implemented'
-
-
-def subtractRows(matrix, a, b):
-    """
-    Subtract rows of a matrix
-    Row a is subtracted to row b
-    """
-    pass
 
 
 def swapRows(matrix, a, b):

@@ -22,6 +22,10 @@ class MByNTests(unittest.TestCase):
         result = mbyn.add([A, A])
         self.assertEqual(result, [[4, 6],[6, 6]])
 
+    def test_addRows(self):
+        result = mbyn.addRows(B[0], B[1])
+        self.assertEquals(result, [4, 8, 8])
+
     def test_clone(self):
         result = mbyn.clone(B)
         self.assertEquals(result, B)

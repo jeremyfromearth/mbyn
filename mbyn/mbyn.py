@@ -34,30 +34,38 @@ def add(matrices):
 
     result = initialize(len(matrices[0]), len(matrices[0][0]))
     
-    for row in xrange(0, len(result)): 
+    m = len(result)
+    for row in xrange(0, m): 
         for matrix in matrices:
-            for col in xrange(0, len(result[row])):
+            n = len(result[row])
+            for col in xrange(0, n):
                 result[row][col] += matrix[row][col]
                 pass
     return result
 
 
-def addRows(matrix, a, b):
+def addRows(a, b):
     """
     Add two rows of a matrix
-    Row a will be added to row b
+    Returns a new list
     """
-    pass
-
+    result = []
+    
+    m = len(a)
+    for i in xrange(0, m):
+        result.append(a[i] + b[i])
+    return result
 
 def clone(matrix):
     """
     Clones a matrix
     """
     result = []
-    for i in xrange(0, len(matrix)):
+    m = len(matrix)
+    for i in xrange(0, m):
         result.append([])
-        for j in xrange(0, len(matrix[i])):
+        n = len(matrix[i])
+        for j in xrange(0, n):
             result[i].append(matrix[i][j])
     return result
 
@@ -69,13 +77,17 @@ def directSum(a, b):
     rows = len(a) + len(b)
     cols = len(a[0]) + len(b[0])
     result = initialize(rows, cols)
-    for i in xrange(0, len(a)):
-        for j in xrange(0, len(a[i])):
+    m1 = len(a);
+    for i in xrange(0, m1):
+        n1 = len(a[i])
+        for j in xrange(0, n1):
             result[i][j] = a[i][j]
 
-    for i in xrange(0, len(b)):
-        for j in xrange(0, len(b[i])):
-            result[len(a) + i][len(a[0]) + j] = b[i][j]
+    m2 = len(b)
+    for i in xrange(0, m2):
+        n2 = len(b[i])
+        for j in xrange(0, n2):
+            result[m1 + i][n1 + j] = b[i][j]
     return result
 
 
@@ -96,15 +108,16 @@ def fill(matrix, value=0):
     Rows of the supplied matrix must be lists (mutable) as this function will add indices to short rows
     """
     max = 0
-    for row in xrange(0, len(matrix)):
-        columns = len(matrix[row])
-        if columns > max:
-            max = columns
+    m = len(matrix)
+    for row in xrange(0, m):
+        n = len(matrix[row])
+        if n > max:
+            max = n 
 
-    for row in xrange(0, len(matrix)):
-        if len(matrix[row]) < max:
-            while len(matrix[row]) < max:
-                matrix[row].append(value)
+    for i in xrange(0, m):
+        if len(matrix[i]) < max:
+            while len(matrix[i]) < max:
+                matrix[i].append(value)
     return matrix
 
 
@@ -113,7 +126,8 @@ def getColumn(matrix, n):
     Returns a single columns of a matrix as a list (a column vector)
     """
     result = []
-    for i in xrange(0, len(matrix)):
+    m = len(matrix)
+    for i in xrange(0, m):
         result.append(matrix[i][n])
     return result
 
@@ -136,7 +150,6 @@ def getIdentityMatrix(n):
         i += 1
     return result
 
-
 def getInverse(matrix):
     """
     Returns the inverse of a supplied matrix
@@ -152,24 +165,24 @@ def getTranspose(matrix):
     The transpose of a matrix essentially reverses the row and columns of a matrix such that A[i][j] = B[j][i]
     """
     result = []
-    num_rows = len(matrix[0])
-    num_cols = len(matrix)
+    m = len(matrix[0])
+    n = len(matrix)
     
-    for i in xrange(0, num_rows):
+    for i in xrange(0, m):
         result.append([])
-        for j in xrange(0, num_cols):
+        for j in xrange(0, n):
             result[i].append(matrix[j][i]) 
     return result
 
 
-def initialize(rows, columns, value=0):
+def initialize(m, n, value=0):
     """
     Creates a new matrix
     """
     result = []
-    for r in xrange(0, rows):
+    for r in xrange(0, m):
         result.append([])
-        for c in xrange(0, columns):
+        for c in xrange(0, n):
             result[r].append(value)
     return result
 
@@ -179,8 +192,12 @@ def isSquare(matrix):
     Returns a boolean indicating that the matrix is an n by n matrix
     It does so only by verifying that length of the entire matrix is equal to the length of the first row
     """
-    return len(matrix) is len(matrix[0])
-
+    m = len(matrix)
+    for i in xrange(0, m):
+        n = len(matrix[i])
+        if m is not n:
+            return False
+    return True
 
 def multiply(a, b):
     """
@@ -194,14 +211,17 @@ def multiply(a, b):
     if len(a[0]) is not len(b):
         return None
 
+    n = len(b[0])
     columns = []
-    for i in xrange(0, len(b[0])):
+    for i in xrange(0, n):
         columns.append(getColumn(b, i))
 
+    m = len(a)
+    n = len(columns)
     result = []
-    for i in xrange(0, len(a)):
+    for i in xrange(0, m):
         result.append([])
-        for j in xrange(0, len(columns)):
+        for j in xrange(0, n):
             result[i].append(multiplyRowByColumn(a[i], columns[j]))
     return result 
 
@@ -215,7 +235,8 @@ def multiplyRowByColumn(row, column):
         return None
     
     result = 0
-    for i in xrange(0, len(row)):
+    m = len(row)
+    for i in xrange(0, m):
         result += row[i] * column[i]
     return result
 
@@ -232,15 +253,15 @@ def toString(matrix):
     Returns a well formatted string representation of a matrix
     """
     result = ''
-    num_rows = len(matrix)
-    for i in xrange(0, num_rows):
-        num_cols = len(matrix[i])
-        for j in xrange(0, num_cols):
+    m = len(matrix)
+    for i in xrange(0, m):
+        n = len(matrix[i])
+        for j in xrange(0, n):
             result += str(matrix[i][j])
-            if j < num_cols - 1:
+            if j < n - 1:
                 result += ', '
         
-        if i < num_rows - 1:
+        if i < m - 1:
             result += '\n'
     return result
 
@@ -264,7 +285,8 @@ def scaleRow(row, scalar):
     This method directly affects the supplied matrix
     """
     result = []
-    for i in xrange(0, len(row)):
+    n = len(row)
+    for i in xrange(0, n):
        result.append(row[i] * scalar)
     return result 
 
@@ -307,8 +329,8 @@ def validate(matrix):
     if len(matrix) is 1:
         return True
 
-    l = len(matrix[0])
+    n = len(matrix[0])
     for row in matrix:
-        if len(row) is not l:
+        if len(row) is not n:
             return False
     return True

@@ -81,6 +81,9 @@ print mbyn.toString(mbyn.directSum(G, H))
 print 'swapRows(H, 0, 1)'
 print mbyn.toString(mbyn.swapRows(H, 0, 1))
 
+print 'getTranspose(E)'
+print mbyn.toString(mbyn.getTranspose(E))
+
 print mbyn.multiply(G, G)
 print mbyn.expo(G, 3)
 

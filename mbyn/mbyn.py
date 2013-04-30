@@ -18,7 +18,7 @@ however appropriate to the operation they are being supplied to. There are a num
 of validation methods that should aid in testing for compatability in cases where
 formatting integrity is unknown. 
 
-The methods in this module follow certain naming conventions. 
+The local variables in each method follow certain naming conventions. 
 Variables m and n are used to denote the dimensions of a matrix
 Variables i and j are used to denote the row index and column index of rows and columns that are iterated over
 
@@ -29,6 +29,8 @@ For example:
         n = len(row)
         for j in xrange(0, n):
             column = row[j]
+
+Where multiple matrices are iterated over or iterations are nested the convention m1, m2, n1, n2, i1, i2, j1, j2 ect.. is used
 """
 
 def add(matrices):
@@ -67,6 +69,7 @@ def addRows(a, b):
     for i in xrange(0, n):
         result.append(a[i] + b[i])
     return result
+
 
 def clone(matrix):
     """

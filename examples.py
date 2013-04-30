@@ -1,4 +1,10 @@
-from mbyn import mbyn 
+"""
+Examples
+"""
+
+print "M by N Examples: \n"
+
+from mbyn import mbyn
 
 def main():
     A = [

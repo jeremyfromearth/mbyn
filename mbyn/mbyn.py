@@ -263,24 +263,11 @@ def partition(matrix, rows, cols):
     """
     print 'partition not implemented'
 
-
-def toString(matrix):
-    """
-    Returns a well formatted string representation of a matrix
-    """
-    result = ''
+def rowEchelonForm(matrix):
     m = len(matrix)
-    for i in xrange(0, m):
-        n = len(matrix[i])
-        for j in xrange(0, n):
-            result += str(matrix[i][j])
-            if j < n - 1:
-                result += ', '
-        
-        if i < m - 1:
-            result += '\n'
-    return result
-
+    k = 0
+    p = 0
+    print 'not implemented'
 
 def scaleBy(matrix, scalar):
     """
@@ -325,6 +312,23 @@ def swapRows(matrix, a, b):
     matrix[b] = rowA
     return matrix
     
+def toString(matrix):
+    """
+    Returns a well formatted string representation of a matrix
+    """
+    result = ''
+    m = len(matrix)
+    for i in xrange(0, m):
+        n = len(matrix[i])
+        for j in xrange(0, n):
+            result += str(matrix[i][j])
+            if j < n - 1:
+                result += ', '
+        
+        if i < m - 1:
+            result += '\n'
+    return result
+
 
 def validate(matrix):
     """

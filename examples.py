@@ -25,6 +25,24 @@ def main():
             [3, 1]
     ]
 
+    D = [
+            [1, 0, 0],
+            [0, 3, 1],
+            [0, 0, 4]
+    ]
+
+    E = [
+            [1, 0, 2, 0, 0],
+            [0, 1, 0, 1, 0],
+            [0, 0, 1, 0, 0],
+            [0, 0, 0, 0, 1]
+    ] 
+    
+    F = [
+        [1, 0],
+        [0, 1]
+    ]
+
     print 'A='
     printMatrix(A)
 
@@ -33,6 +51,15 @@ def main():
 
     print 'C='
     printMatrix(C)
+
+    print 'D='
+    printMatrix(D)
+
+    print 'E='
+    printMatrix(E)
+
+    print 'F='
+    printMatrix(F)
 
     print 'add([A, B])'
     printMatrix(mbyn.add([A, B]))
@@ -66,6 +93,10 @@ def main():
     print 'initialize(5, 3, 0)'
     printMatrix(mbyn.initialize(5, 3, 0))
 
+    print 'isRowEchelonForm(E)'
+    print mbyn.isRowEchelonForm(E)
+    print '\n'
+
     print 'isSquare(A)'
     print mbyn.isSquare(A)
     print '\n'
@@ -76,6 +107,9 @@ def main():
     print 'multiplyRowByColumn([3, 2, 1], [1, 4, 3])'
     print mbyn.multiplyRowByColumn([3, 2, 1], [1, 4, 3])
     print '\n'
+    
+    print 'rowEchelonForm(D)'
+    printMatrix(mbyn.rowEchelonForm(D))
 
     print 'scaleBy(A, -3)'
     printMatrix(mbyn.scaleBy(A, -3))

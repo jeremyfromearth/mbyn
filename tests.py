@@ -16,6 +16,13 @@ C = [
         [3, 3]
     ]
 
+D = [
+        [1, 0, 2, 0, 0],
+        [0, 1, 0, 1, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 0, 0, 1]
+]
+
 class MByNTests(unittest.TestCase):
 
     def test_add(self):
@@ -57,6 +64,12 @@ class MByNTests(unittest.TestCase):
     def test_initialize(self):
         result = mbyn.initialize(3, 5, 1)
         self.assertEqual(result, [[1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1]])
+    
+    def test_isRowEchelonForm(self):
+        result = mbyn.isRowEchelonForm(D)
+        self.assertTrue(result)
+        result = mbyn.isRowEchelonForm(B)
+        self.assertFalse(result)
 
     def test_isSqaure(self):
         result = mbyn.isSquare(A)

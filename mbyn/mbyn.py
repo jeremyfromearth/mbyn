@@ -55,7 +55,7 @@ def add(matrices):
             for col in xrange(0, n):
                 result[row][col] += matrix[row][col]
                 pass
-    return result
+    return result 
 
 
 def addRows(a, b):
@@ -201,6 +201,26 @@ def initialize(m, n, value=0):
             result[i].append(value)
     return result
 
+def isRowEchelonForm(matrix):
+    """
+    Returns a boolean indicating that the supplied matrix is or isn't in reduced row echelon form
+    """ 
+    p = 0
+    m = len(matrix)
+    n = len(matrix[0])
+    for i in xrange(0, m):
+        for j in xrange(0, n):
+            if j >= p:
+                value = matrix[i][j]
+                if value is 0 or value is 1:
+                    p = j+1
+                    if value is 1:
+                        break
+                else:
+                    return False
+            elif matrix[i][j] is not 0:
+                return False
+    return True
 
 def isSquare(matrix):
     """
@@ -213,7 +233,6 @@ def isSquare(matrix):
         if m is not n:
             return False
     return True
-
 
 def multiply(a, b):
     """
@@ -264,10 +283,31 @@ def partition(matrix, rows, cols):
     print 'partition not implemented'
 
 def rowEchelonForm(matrix):
+    """
+    Returns a new matrix in row echelon form 
+    Uses Gaussian elimination algorithm
+    """
     m = len(matrix)
+    n = len(matrix[0])
     k = 0
     p = 0
-    print 'not implemented'
+    result = clone(matrix) 
+    
+    #find first non-zero column
+    inz = m 
+    jnz = n 
+
+    for i in xrange(0, m):
+        for j in xrange(0, n):
+            if matrix[i][j] == 0 and j < jnz:
+                inz = i
+                jnz = j
+         
+    swapRows(result, k, inz)
+    
+    print inz, jnz
+     
+    return matrix
 
 def scaleBy(matrix, scalar):
     """
@@ -281,11 +321,10 @@ def scaleBy(matrix, scalar):
             result[i][j] *= scalar
     return result 
 
-
 def scaleRow(row, scalar):
     """
     Multiplies each value in a row by the supplied scalar
-    This method directly affects the supplied matrix
+    Returns a new row
     """
     result = []
     n = len(row)
@@ -305,6 +344,7 @@ def swapRows(matrix, a, b):
     """
     Swaps the rows of a matrix
     a & b should be the indices of the rows to swap
+    Returns supplied matrix with indicated rows swapped
     """
     rowA = matrix[a]
     rowB = matrix[b]

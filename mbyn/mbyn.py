@@ -180,8 +180,8 @@ def getReducedRowEchelonForm(matrix):
     Returns a new matrix in reduced row echelon form 
     Uses Gaussian elimination algorithm
     """
-    k = 0
-    p = 0
+    k = 0 #current row we are working on
+    p = 0 #current column we are working on
     m = len(matrix)
     n = len(matrix[0])
     result = clone(matrix) 

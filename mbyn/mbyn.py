@@ -146,7 +146,6 @@ def getColumn(matrix, n):
         result.append(matrix[i][n])
     return result
 
-
 def getIdentityMatrix(m):
     """
     Creates an identity an matrix of dimension n
@@ -207,8 +206,21 @@ def getReducedRowEchelonForm(matrix):
             if i != k and result[i][p] != 0:
                 result[i] = subtractRows(result[i], scaleRow(result[k], result[i][p]))
         k += 1
-
     return result 
+
+def getSparseMatrix(matrix):
+    """
+    Returns a sparse matrix representation of the supplied matrix
+    """
+    result = []
+    m = len(matrix)
+    n = len(matrix[0])
+    
+    for i in xrange(0, m):
+        for j in xrange(0, n):
+            if matrix[i][j] != 0.0:
+                result.append([i, j, matrix[i][j]]) 
+    return result
 
 def getTranspose(matrix):
     """
@@ -255,7 +267,6 @@ def isRowEchelonForm(matrix):
                 else:
                     return False
             elif matrix[i][j] != 0.0:
-                print 'return false', i, j
                 return False
     return True
 
@@ -383,12 +394,7 @@ def toString(matrix):
     result = ''
     m = len(matrix)
     for i in xrange(0, m):
-        n = len(matrix[i])
-        for j in xrange(0, n):
-            result += str(matrix[i][j])
-            if j < n - 1:
-                result += ', '
-        
+        result += str(matrix[i])
         if i < m - 1:
             result += '\n'
     return result

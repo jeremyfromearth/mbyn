@@ -107,7 +107,13 @@ def main():
 
     print 'getIdentityMatrix(6)'
     printMatrix(mbyn.getIdentityMatrix(6))
+
+    print 'getReducedRowEchelonForm(H)'
+    printMatrix(mbyn.getReducedRowEchelonForm(H))
     
+    print 'getSparseMatrix(E)'
+    printMatrix(mbyn.getSparseMatrix(E))
+
     print 'getTranspose(A)'
     printMatrix(mbyn.getTranspose(A))
     
@@ -129,9 +135,6 @@ def main():
     print mbyn.multiplyRowByColumn([3, 2, 1], [1, 4, 3])
     print '\n'
     
-    print 'getReducedRowEchelonForm(H)'
-    printMatrix(mbyn.getReducedRowEchelonForm(H))
-
     print 'scaleBy(A, -3)'
     printMatrix(mbyn.scaleBy(A, -3))
 

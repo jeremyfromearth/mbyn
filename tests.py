@@ -67,6 +67,10 @@ class MByNTests(unittest.TestCase):
         result = mbyn.getReducedRowEchelonForm([[0, 0, 0], [1, 0, 0], [0, 1, 0]])
         self.assertEquals(result, [[1, 0, 0], [0, 1, 0], [0, 0, 0]]);
 
+    def test_getSparseMatrix(self):
+        result = mbyn.getSparseMatrix(D)
+        self.assertEquals(result, [[0, 0, 1], [0, 2, 2], [1, 1, 1], [1, 3, 1], [2, 2, 1], [3, 4, 1]])
+
     def test_getTranspose(self):
         result = mbyn.getTranspose(B)
         self.assertEqual(result, [[2, 2], [5, 3],[6, 2]])

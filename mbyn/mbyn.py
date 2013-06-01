@@ -185,9 +185,11 @@ def getReducedRowEchelonForm(matrix):
     result = clone(matrix) 
     
     while k is not m:
-        if all(x == 0 for x in result[k]):
+        if all(result[i][j] == 0.0 
+                for i in xrange(k, m) 
+                    for j in xrange(0, n)):
             return result
-  
+
         kt = k 
         pt = n 
         for i in xrange(k, m):

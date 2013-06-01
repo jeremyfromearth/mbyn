@@ -146,6 +146,7 @@ def getColumn(matrix, n):
         result.append(matrix[i][n])
     return result
 
+
 def getIdentityMatrix(m):
     """
     Creates an identity an matrix of dimension n
@@ -164,6 +165,7 @@ def getIdentityMatrix(m):
         i += 1
     return result
 
+
 def getInverse(matrix):
     """
     Returns the inverse of a supplied matrix
@@ -171,6 +173,7 @@ def getInverse(matrix):
     """
     print 'getInverse() not implemented'
     pass
+
 
 def getReducedRowEchelonForm(matrix):
     """
@@ -208,6 +211,7 @@ def getReducedRowEchelonForm(matrix):
         k += 1
     return result 
 
+
 def getSparseMatrix(matrix):
     """
     Returns a sparse matrix representation of the supplied matrix
@@ -221,6 +225,7 @@ def getSparseMatrix(matrix):
             if matrix[i][j] != 0.0:
                 result.append([i, j, matrix[i][j]]) 
     return result
+
 
 def getTranspose(matrix):
     """
@@ -249,6 +254,7 @@ def initialize(m, n, value=0):
             result[i].append(value)
     return result
 
+
 def isRowEchelonForm(matrix):
     """
     Returns a boolean indicating that the supplied matrix is or isn't in reduced row echelon form
@@ -270,6 +276,7 @@ def isRowEchelonForm(matrix):
                 return False
     return True
 
+
 def isSquare(matrix):
     """
     Returns a boolean indicating that the matrix is an n by n matrix
@@ -281,6 +288,7 @@ def isSquare(matrix):
         if m is not n:
             return False
     return True
+
 
 def multiply(a, b):
     """
@@ -331,8 +339,6 @@ def partition(matrix, rows, cols):
     print 'partition not implemented'
 
 
-
-
 def scaleBy(matrix, scalar):
     """
     Multiplies every value in the matrix by the supplied scalar
@@ -344,6 +350,7 @@ def scaleBy(matrix, scalar):
         for j in xrange(0, num_cols):
             result[i][j] *= scalar
     return result 
+
 
 def scaleRow(row, scalar):
     """
@@ -363,6 +370,7 @@ def submatrix(matrix, r1, r2, c1, c2):
     """
     print 'submatrix not implemented'
 
+
 def subtractRows(a, b):
     """
     Subtracts values in row b from values in row a 
@@ -374,6 +382,7 @@ def subtractRows(a, b):
     for i in xrange(0, n):
         result.append(a[i] - b[i])
     return result
+
 
 def swapRows(matrix, a, b):
     """
@@ -387,6 +396,7 @@ def swapRows(matrix, a, b):
     matrix[b] = rowA
     return matrix
     
+
 def toString(matrix):
     """
     Returns a well formatted string representation of a matrix

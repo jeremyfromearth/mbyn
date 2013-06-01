@@ -17,10 +17,10 @@ C = [
     ]
 
 D = [
-        [1, 0, 2, 0, 0],
-        [0, 1, 0, 1, 0],
-        [0, 0, 1, 0, 0],
-        [0, 0, 0, 0, 1]
+        [1.0, 0.0, 2.0, 0.0, 0.0],
+        [0.0, 1.0, 0.0, 1.0, 0.0],
+        [0.0, 0.0, 1.0, 0.0, 0.0],
+        [0.0, 0.0, 0.0, 0.0, 1.0]
 ]
 
 class MByNTests(unittest.TestCase):
@@ -48,7 +48,7 @@ class MByNTests(unittest.TestCase):
     def test_fill(self):
         result = mbyn.fill(C, 1)
         self.assertEqual(result, [[0, 0, 1], [3, 3, 1]])
-    
+  
     def test_getColumn(self):
         result = mbyn.getColumn(B, 2)
         self.assertEqual(result, [6, 2])
@@ -56,6 +56,10 @@ class MByNTests(unittest.TestCase):
     def test_getIdentityMatrix(self):
         result = mbyn.getIdentityMatrix(4)
         self.assertEqual(result, [[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])
+    
+    def test_getReducedRowEchelonForm(self):
+        result = mbyn.getReducedRowEchelonForm(D)
+        self.assertEquals(result, [[1.0, 0.0, 0.0, 0.0, 0.0], [0.0, 1.0, 0.0, 1.0, 0.0], [0.0, 0.0, 1.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 1.0]])
 
     def test_getTranspose(self):
         result = mbyn.getTranspose(B)
@@ -93,6 +97,12 @@ class MByNTests(unittest.TestCase):
     def test_scaleRow(self):
         result = mbyn.scaleRow(A[0],  6)
         self.assertEqual(result, [12, 18])
+
+    def test_subtractRows(self):
+        a = [1, 1, 1]
+        b = [2, 2, 2]
+        result = mbyn.subtractRows(a, b)
+        self.assertEqual(result, [-1, -1, -1])
 
     def test_swapRows(self):
         result = mbyn.swapRows(A, 0, 1)

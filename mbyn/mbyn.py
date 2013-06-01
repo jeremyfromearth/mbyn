@@ -173,6 +173,40 @@ def getInverse(matrix):
     print 'getInverse() not implemented'
     pass
 
+def getReducedRowEchelonForm(matrix):
+    """
+    Returns a new matrix in reduced row echelon form 
+    Uses Gaussian elimination algorithm
+    """
+    k = 0
+    p = 0
+    m = len(matrix)
+    n = len(matrix[0])
+    result = clone(matrix) 
+    
+    while k is not m:
+        if all(x == 0 for x in result[k]):
+            return result
+  
+        kt = k 
+        pt = n 
+        for i in xrange(k, m):
+            for j in xrange(0, n):
+                if result[i][j] != 0.0 and j < pt:
+                    kt = i
+                    pt = j
+        p = pt
+        if k is not kt:
+            swapRows(result, k, kt)
+        
+        result[k] = scaleRow(result[k], 1/result[k][p])
+
+        for i in xrange(0, m):
+            if i != k and result[i][p] != 0:
+                result[i] = subtractRows(result[i], scaleRow(result[k], result[i][p]))
+        k += 1
+
+    return result 
 
 def getTranspose(matrix):
     """
@@ -212,13 +246,14 @@ def isRowEchelonForm(matrix):
         for j in xrange(0, n):
             if j >= p:
                 value = matrix[i][j]
-                if value is 0 or value is 1:
+                if value == 0.0 or value == 1.0:
                     p = j+1
-                    if value is 1:
+                    if value == 1.0:
                         break
                 else:
                     return False
-            elif matrix[i][j] is not 0:
+            elif matrix[i][j] != 0.0:
+                print 'return false', i, j
                 return False
     return True
 
@@ -282,32 +317,8 @@ def partition(matrix, rows, cols):
     """
     print 'partition not implemented'
 
-def rowEchelonForm(matrix):
-    """
-    Returns a new matrix in row echelon form 
-    Uses Gaussian elimination algorithm
-    """
-    m = len(matrix)
-    n = len(matrix[0])
-    k = 0
-    p = 0
-    result = clone(matrix) 
-    
-    #find first non-zero column
-    inz = m 
-    jnz = n 
 
-    for i in xrange(0, m):
-        for j in xrange(0, n):
-            if matrix[i][j] == 0 and j < jnz:
-                inz = i
-                jnz = j
-         
-    swapRows(result, k, inz)
-    
-    print inz, jnz
-     
-    return matrix
+
 
 def scaleBy(matrix, scalar):
     """
@@ -339,6 +350,17 @@ def submatrix(matrix, r1, r2, c1, c2):
     """
     print 'submatrix not implemented'
 
+def subtractRows(a, b):
+    """
+    Subtracts values in row b from values in row a 
+    Returns a new list
+    """
+    result = []
+    
+    n = len(a)
+    for i in xrange(0, n):
+        result.append(a[i] - b[i])
+    return result
 
 def swapRows(matrix, a, b):
     """

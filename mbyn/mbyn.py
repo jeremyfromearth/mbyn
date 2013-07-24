@@ -344,10 +344,10 @@ def scaleBy(matrix, scalar):
     Multiplies every value in the matrix by the supplied scalar
     """
     result = clone(matrix) 
-    num_rows = len(result)
-    for i in xrange(0, num_rows):
-        num_cols = len(result[i])
-        for j in xrange(0, num_cols):
+    m = len(result)
+    for i in xrange(0, m):
+        n = len(result[i])
+        for j in xrange(0, n):
             result[i][j] *= scalar
     return result 
 

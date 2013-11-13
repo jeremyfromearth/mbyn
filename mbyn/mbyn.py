@@ -293,8 +293,9 @@ def isSquare(matrix):
 def multiply(a, b):
     """
     Multiplies two matrices 
+    Uses a matrix/matrix dot product approach
     If a is m x n, b should be n x p, otherwise None is returned
-    This method is split into a couple of steps
+    Split into a couple of steps
         * Check for multiplicative compatibility
         * Make a list of the columns of matrix b
         * Multiply the rows of matrix a by the list of columns

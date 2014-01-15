@@ -58,7 +58,7 @@ def add(matrices):
     return result 
 
 
-def addRows(a, b):
+def add_rows(a, b):
     """
     Add two rows of a matrix
     Returns a new list
@@ -85,7 +85,7 @@ def clone(matrix):
     return result
 
 
-def directSum(a, b):
+def direct_sum(a, b):
     """
     Returns the direct sum of the two supplied matrices
     """
@@ -110,7 +110,7 @@ def expo(matrix, exponent):
     """
     Raise a matrix to a power
     """
-    if not isSquare(matrix): return None
+    if not is_square(matrix): return None
     result = clone(matrix) 
     for x in range(0, exponent - 1):
         result = multiply(matrix, result)
@@ -136,7 +136,7 @@ def fill(matrix, value=0):
     return matrix
 
 
-def getColumn(matrix, n):
+def get_column(matrix, n):
     """
     Returns a single columns of a matrix as a list (a column vector)
     """
@@ -147,7 +147,7 @@ def getColumn(matrix, n):
     return result
 
 
-def getIdentityMatrix(m):
+def get_identity_matrix(m):
     """
     Creates an identity an matrix of dimension n
     """
@@ -166,16 +166,16 @@ def getIdentityMatrix(m):
     return result
 
 
-def getInverse(matrix):
+def get_inverse(matrix):
     """
     Returns the inverse of a supplied matrix
     The inverse of matrix A is the matrix B such that A*B = the identity matrix
     """
-    print 'getInverse() not implemented'
+    print 'get_inverse() not implemented'
     pass
 
 
-def getReducedRowEchelonForm(matrix):
+def get_reduced_row_echelon_form(matrix):
     """
     Returns a new matrix in reduced row echelon form 
     Uses Gaussian elimination algorithm
@@ -201,18 +201,18 @@ def getReducedRowEchelonForm(matrix):
                     pt = j
         p = pt
         if k is not kt:
-            swapRows(result, k, kt)
+            swap_rows(result, k, kt)
         
-        result[k] = scaleRow(result[k], 1/result[k][p])
+        result[k] = scale_row(result[k], 1/result[k][p])
 
         for i in xrange(0, m):
             if i != k and result[i][p] != 0:
-                result[i] = subtractRows(result[i], scaleRow(result[k], result[i][p]))
+                result[i] = subtract_rows(result[i], scale_row(result[k], result[i][p]))
         k += 1
     return result 
 
 
-def getSparseMatrix(matrix):
+def get_sparse_matrix(matrix):
     """
     Returns a sparse matrix representation of the supplied matrix
     """
@@ -227,7 +227,7 @@ def getSparseMatrix(matrix):
     return result
 
 
-def getTranspose(matrix):
+def get_transpose(matrix):
     """
     Returns the transpose of the supplied matrix
     The transpose of a matrix essentially reverses the row and columns of a matrix such that A[i][j] = B[j][i]
@@ -255,7 +255,7 @@ def initialize(m, n, value=0):
     return result
 
 
-def isRowEchelonForm(matrix):
+def is_row_echelon_form(matrix):
     """
     Returns a boolean indicating that the supplied matrix is or isn't in reduced row echelon form
     """ 
@@ -276,8 +276,7 @@ def isRowEchelonForm(matrix):
                 return False
     return True
 
-
-def isSquare(matrix):
+def is_square(matrix):
     """
     Returns a boolean indicating that the matrix is an n by n matrix
     It does so only by verifying that length of the entire matrix is equal to the length of the first row
@@ -306,7 +305,7 @@ def multiply(a, b):
     n = len(b[0])
     columns = []
     for i in xrange(0, n):
-        columns.append(getColumn(b, i))
+        columns.append(get_column(b, i))
 
     m = len(a)
     n = len(columns)
@@ -314,11 +313,11 @@ def multiply(a, b):
     for i in xrange(0, m):
         result.append([])
         for j in xrange(0, n):
-            result[i].append(multiplyRowByColumn(a[i], columns[j]))
+            result[i].append(multiply_row_by_column(a[i], columns[j]))
     return result 
 
 
-def multiplyRowByColumn(row, column):
+def multiply_row_by_column(row, column):
     """
     Multplies a row by a columns and returns a single value as the result
     Will return None if the row and column are not the same length
@@ -340,7 +339,7 @@ def partition(matrix, rows, cols):
     print 'partition not implemented'
 
 
-def scaleBy(matrix, scalar):
+def scale_by(matrix, scalar):
     """
     Multiplies every value in the matrix by the supplied scalar
     """
@@ -353,7 +352,7 @@ def scaleBy(matrix, scalar):
     return result 
 
 
-def scaleRow(row, scalar):
+def scale_row(row, scalar):
     """
     Multiplies each value in a row by the supplied scalar
     Returns a new row
@@ -372,7 +371,7 @@ def submatrix(matrix, r1, r2, c1, c2):
     print 'submatrix not implemented'
 
 
-def subtractRows(a, b):
+def subtract_rows(a, b):
     """
     Subtracts values in row b from values in row a 
     Returns a new list
@@ -385,7 +384,7 @@ def subtractRows(a, b):
     return result
 
 
-def swapRows(matrix, a, b):
+def swap_rows(matrix, a, b):
     """
     Swaps the rows of a matrix
     a & b should be the indices of the rows to swap
@@ -398,7 +397,7 @@ def swapRows(matrix, a, b):
     return matrix
     
 
-def toString(matrix):
+def to_str(matrix):
     """
     Returns a well formatted string representation of a matrix
     """

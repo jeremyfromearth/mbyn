@@ -57,95 +57,94 @@ def main():
             [10.0, 11.0, 12.0],
             [13.0, 14.0, 15.0]
     ]
-
     print 'A='
-    printMatrix(A)
+    print_matrix(A)
 
     print 'B='
-    printMatrix(B)
+    print_matrix(B)
 
     print 'C='
-    printMatrix(C)
+    print_matrix(C)
 
     print 'D='
-    printMatrix(D)
+    print_matrix(D)
 
     print 'E='
-    printMatrix(E)
+    print_matrix(E)
 
     print 'F='
-    printMatrix(F)
+    print_matrix(F)
 
     print 'G='
-    printMatrix(G)
+    print_matrix(G)
 
     print 'H='
-    printMatrix(H)
+    print_matrix(H)
 
     print 'add([A, B])'
-    printMatrix(mbyn.add([A, B]))
+    print_matrix(mbyn.add([A, B]))
 
-    print 'addRows(A[0], A[1])'
-    print mbyn.addRows(A[0], A[1])
+    print 'add_rows(A[0], A[1])'
+    print mbyn.add_rows(A[0], A[1])
     print '\n'
 
     print 'clone(A)'
-    printMatrix(mbyn.clone(A))
+    print_matrix(mbyn.clone(A))
 
-    print 'directSum(A, B)'
-    printMatrix(mbyn.directSum(A, B))
+    print 'direct_sum(A, B)'
+    print_matrix(mbyn.direct_sum(A, B))
 
     print 'expo(A, 3)'
-    printMatrix(mbyn.expo(A, 3))
+    print_matrix(mbyn.expo(A, 3))
 
     print 'fill([[0, 2], [2, 1, 3, 4]], 21)'
-    printMatrix(mbyn.fill([[0, 2], [2, 1, 3, 4]], 9))
+    print_matrix(mbyn.fill([[0, 2], [2, 1, 3, 4]], 9))
 
-    print 'getColumn(A, 1)'
-    print mbyn.getColumn(A, 1)
+    print 'get_column(A, 1)'
+    print mbyn.get_column(A, 1)
     print '\n'
 
-    print 'getIdentityMatrix(6)'
-    printMatrix(mbyn.getIdentityMatrix(6))
+    print 'get_identity_matrix(6)'
+    print_matrix(mbyn.get_identity_matrix(6))
 
-    print 'getReducedRowEchelonForm(H)'
-    printMatrix(mbyn.getReducedRowEchelonForm(H))
+    print 'get_reduced_row_echelon_form(H)'
+    print_matrix(mbyn.get_reduced_row_echelon_form(H))
     
-    print 'getSparseMatrix(E)'
-    printMatrix(mbyn.getSparseMatrix(E))
+    print 'get_sparse_matrix(E)'
+    print_matrix(mbyn.get_sparse_matrix(E))
 
-    print 'getTranspose(A)'
-    printMatrix(mbyn.getTranspose(A))
+    print 'get_transpose(A)'
+    print_matrix(mbyn.get_transpose(A))
     
     print 'initialize(5, 3, 0)'
-    printMatrix(mbyn.initialize(5, 3, 0))
+    print_matrix(mbyn.initialize(5, 3, 0))
 
-    print 'isRowEchelonForm(E)'
-    print mbyn.isRowEchelonForm(E)
+    print 'is_row_echelon_form(E)'
+    print mbyn.is_row_echelon_form(E)
     print '\n'
 
-    print 'isSquare(A)'
-    print mbyn.isSquare(A)
+    print 'is_square(A)'
+    print mbyn.is_square(A)
     print '\n'
 
     print 'multpily(A, B)'
-    printMatrix(mbyn.multiply(A, B))
+    print_matrix(mbyn.multiply(A, B))
 
-    print 'multiplyRowByColumn([3, 2, 1], [1, 4, 3])'
-    print mbyn.multiplyRowByColumn([3, 2, 1], [1, 4, 3])
+    print 'multiply_row_by_column([3, 2, 1], [1, 4, 3])'
+    print mbyn.multiply_row_by_column([3, 2, 1], [1, 4, 3])
     print '\n'
     
-    print 'scaleBy(A, -3)'
-    printMatrix(mbyn.scaleBy(A, -3))
+    print 'scale_by(A, -3)'
+    print_matrix(mbyn.scale_by(A, -3))
 
-    print 'swapRows(A, 2, 0)'
-    printMatrix(mbyn.swapRows(A, 2, 0))
+    print 'swap_rows(A, 2, 0)'
+    print_matrix(mbyn.swap_rows(A, 2, 0))
 
     print 'validate([[2, 1, 4], [2, 1]])'
     print mbyn.validate([[2, 1, 4],[2, 1]])
 
-def printMatrix(matrix):
-    print mbyn.toString(matrix) + '\n'
+def print_matrix(matrix):
+    print mbyn.to_str(matrix) + '\n'
 
 if __name__ == '__main__':
     main()

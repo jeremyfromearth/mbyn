@@ -241,7 +241,6 @@ def get_transpose(matrix):
             result[i].append(matrix[j][i]) 
     return result
 
-#def has_homegeneous_solution(
 
 def initialize(m, n, value=0):
     """
@@ -253,6 +252,7 @@ def initialize(m, n, value=0):
         for j in xrange(0, n):
             result[i].append(value)
     return result
+
 
 def is_row_echelon_form(matrix):
     """
@@ -287,8 +287,13 @@ def is_square(matrix):
             return False
     return True
 
+
 def is_zero_vector(v):
+    """
+    Returns a boolean indicating that all values in a vector are zero
+    """
     return all(x == 0 for x in v)
+
 
 def multiply(a, b):
     """

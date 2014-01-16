@@ -226,7 +226,6 @@ def get_sparse_matrix(matrix):
                 result.append([i, j, matrix[i][j]]) 
     return result
 
-
 def get_transpose(matrix):
     """
     Returns the transpose of the supplied matrix
@@ -242,6 +241,7 @@ def get_transpose(matrix):
             result[i].append(matrix[j][i]) 
     return result
 
+#def has_homegeneous_solution(
 
 def initialize(m, n, value=0):
     """
@@ -253,7 +253,6 @@ def initialize(m, n, value=0):
         for j in xrange(0, n):
             result[i].append(value)
     return result
-
 
 def is_row_echelon_form(matrix):
     """
@@ -288,6 +287,8 @@ def is_square(matrix):
             return False
     return True
 
+def is_zero_vector(v):
+    return all(x == 0 for x in v)
 
 def multiply(a, b):
     """

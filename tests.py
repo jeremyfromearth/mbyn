@@ -88,9 +88,14 @@ class MByNTests(unittest.TestCase):
     def test_is_square(self):
         result = mbyn.is_square(A)
         self.assertTrue(result)
-
         result = mbyn.is_square(B)
         self.assertFalse(result)
+
+    def test_is_zero_vector(self):
+        v = [0, 0, 0, 0, 0, 0]
+        self.assertTrue(mbyn.is_zero_vector(v))
+        v.append(1)
+        self.assertFalse(mbyn.is_zero_vector(v))
 
     def test_multiply(self):
         result = mbyn.multiply(A, B)

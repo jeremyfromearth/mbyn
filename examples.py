@@ -127,6 +127,12 @@ def main():
     print mbyn.is_square(A)
     print '\n'
 
+    print 'is_zero_vector(v)'
+    v = [0, 0, 0, 0, 0]
+    print mbyn.is_zero_vector(v)
+    v.append(1)
+    print mbyn.is_zero_vector(v)
+
     print 'multpily(A, B)'
     print_matrix(mbyn.multiply(A, B))
 

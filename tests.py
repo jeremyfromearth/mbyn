@@ -31,19 +31,19 @@ class MByNTests(unittest.TestCase):
 
     def test_add_rows(self):
         result = mbyn.add_rows(B[0], B[1])
-        self.assertEquals(result, [4, 8, 8])
+        self.assertEqual(result, [4, 8, 8])
 
     def test_clone(self):
         result = mbyn.clone(B)
-        self.assertEquals(result, B)
+        self.assertEqual(result, B)
 
     def test_direct_sum(self):
         result = mbyn.direct_sum(A, B)
-        self.assertEquals(result, [[2, 3, 0, 0, 0],[3, 3, 0, 0, 0],[0, 0, 2, 5, 6],[0, 0, 2, 3, 2]])
+        self.assertEqual(result, [[2, 3, 0, 0, 0],[3, 3, 0, 0, 0],[0, 0, 2, 5, 6],[0, 0, 2, 3, 2]])
     
     def test_expo(self):
         result = mbyn.expo(A, 3)
-        self.assertEquals(result, [[71, 84],[84, 99]])
+        self.assertEqual(result, [[71, 84],[84, 99]])
 
     def test_fill(self):
         result = mbyn.fill(C, 1)
@@ -59,17 +59,17 @@ class MByNTests(unittest.TestCase):
     
     def test_get_reduced_row_echelon_form(self):
         result = mbyn.get_reduced_row_echelon_form(D)
-        self.assertEquals(result, [[1.0, 0.0, 0.0, 0.0, 0.0], [0.0, 1.0, 0.0, 1.0, 0.0], [0.0, 0.0, 1.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 1.0]])
+        self.assertEqual(result, [[1.0, 0.0, 0.0, 0.0, 0.0], [0.0, 1.0, 0.0, 1.0, 0.0], [0.0, 0.0, 1.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 1.0]])
 
         result = mbyn.get_reduced_row_echelon_form([[0, 0, 0]])
-        self.assertEquals(result, [[0, 0, 0]]);
+        self.assertEqual(result, [[0, 0, 0]]);
         
         result = mbyn.get_reduced_row_echelon_form([[0, 0, 0], [1, 0, 0], [0, 1, 0]])
-        self.assertEquals(result, [[1, 0, 0], [0, 1, 0], [0, 0, 0]]);
+        self.assertEqual(result, [[1, 0, 0], [0, 1, 0], [0, 0, 0]]);
 
     def test_get_sparse_matrix(self):
         result = mbyn.get_sparse_matrix(D)
-        self.assertEquals(result, [[0, 0, 1], [0, 2, 2], [1, 1, 1], [1, 3, 1], [2, 2, 1], [3, 4, 1]])
+        self.assertEqual(result, [[0, 0, 1], [0, 2, 2], [1, 1, 1], [1, 3, 1], [2, 2, 1], [3, 4, 1]])
 
     def test_get_transpose(self):
         result = mbyn.get_transpose(B)

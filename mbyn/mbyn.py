@@ -24,10 +24,10 @@ Variables i and j are used to denote the row index and column index of rows and 
 
 For example:
     m = len(matrix)
-    for i in xrange(0, m):
+    for i in range(0, m):
         row = matrix[i]
         n = len(row)
-        for j in xrange(0, n):
+        for j in range(0, n):
             column = row[j]
 
 Where multiple matrices are iterated over or iterations are nested the convention m1, m2, n1, n2, i1, i2, j1, j2 ect.. is used
@@ -47,16 +47,11 @@ def add(matrices):
         return matrices[0]
 
     result = initialize(len(matrices[0]), len(matrices[0][0]))
-    
-    m = len(result)
-    for row in xrange(0, m): 
-        for matrix in matrices:
-            n = len(result[row])
-            for col in xrange(0, n):
-                result[row][col] += matrix[row][col]
-                pass
-    return result 
+    for matrix in matrices:
+        for m in range(0, len(matrix)):
+           result[m] = [x + y for x, y in zip(result[m], matrix[m])]
 
+    return result 
 
 def add_rows(a, b):
     """
@@ -66,7 +61,7 @@ def add_rows(a, b):
     result = []
     
     n = len(a)
-    for i in xrange(0, n):
+    for i in range(0, n):
         result.append(a[i] + b[i])
     return result
 
@@ -77,10 +72,10 @@ def clone(matrix):
     """
     result = []
     m = len(matrix)
-    for i in xrange(0, m):
+    for i in range(0, m):
         result.append([])
         n = len(matrix[i])
-        for j in xrange(0, n):
+        for j in range(0, n):
             result[i].append(matrix[i][j])
     return result
 
@@ -93,15 +88,15 @@ def direct_sum(a, b):
     cols = len(a[0]) + len(b[0])
     result = initialize(rows, cols)
     m1 = len(a);
-    for i in xrange(0, m1):
+    for i in range(0, m1):
         n1 = len(a[i])
-        for j in xrange(0, n1):
+        for j in range(0, n1):
             result[i][j] = a[i][j]
 
     m2 = len(b)
-    for i in xrange(0, m2):
+    for i in range(0, m2):
         n2 = len(b[i])
-        for j in xrange(0, n2):
+        for j in range(0, n2):
             result[m1 + i][n1 + j] = b[i][j]
     return result
 
@@ -124,12 +119,12 @@ def fill(matrix, value=0):
     """
     max = 0
     m = len(matrix)
-    for row in xrange(0, m):
+    for row in range(0, m):
         n = len(matrix[row])
         if n > max:
             max = n 
 
-    for i in xrange(0, m):
+    for i in range(0, m):
         if len(matrix[i]) < max:
             while len(matrix[i]) < max:
                 matrix[i].append(value)
@@ -142,7 +137,7 @@ def get_column(matrix, n):
     """
     result = []
     m = len(matrix)
-    for i in xrange(0, m):
+    for i in range(0, m):
         result.append(matrix[i][n])
     return result
 
@@ -171,7 +166,7 @@ def get_inverse(matrix):
     Returns the inverse of a supplied matrix
     The inverse of matrix A is the matrix B such that A*B = the identity matrix
     """
-    print 'get_inverse() not implemented'
+    print('get_inverse() not implemented')
     pass
 
 
@@ -188,14 +183,14 @@ def get_reduced_row_echelon_form(matrix):
     
     while k is not m:
         if all(result[i][j] == 0.0 
-                for i in xrange(k, m) 
-                    for j in xrange(0, n)):
+                for i in range(k, m) 
+                    for j in range(0, n)):
             return result
 
         kt = k 
         pt = n 
-        for i in xrange(k, m):
-            for j in xrange(0, n):
+        for i in range(k, m):
+            for j in range(0, n):
                 if result[i][j] != 0.0 and j < pt:
                     kt = i
                     pt = j
@@ -205,7 +200,7 @@ def get_reduced_row_echelon_form(matrix):
         
         result[k] = scale_row(result[k], 1/result[k][p])
 
-        for i in xrange(0, m):
+        for i in range(0, m):
             if i != k and result[i][p] != 0:
                 result[i] = subtract_rows(result[i], scale_row(result[k], result[i][p]))
         k += 1
@@ -220,8 +215,8 @@ def get_sparse_matrix(matrix):
     m = len(matrix)
     n = len(matrix[0])
     
-    for i in xrange(0, m):
-        for j in xrange(0, n):
+    for i in range(0, m):
+        for j in range(0, n):
             if matrix[i][j] != 0.0:
                 result.append([i, j, matrix[i][j]]) 
     return result
@@ -235,9 +230,9 @@ def get_transpose(matrix):
     m = len(matrix[0])
     n = len(matrix)
     
-    for i in xrange(0, m):
+    for i in range(0, m):
         result.append([])
-        for j in xrange(0, n):
+        for j in range(0, n):
             result[i].append(matrix[j][i]) 
     return result
 
@@ -247,9 +242,9 @@ def initialize(m, n, value=0):
     Creates a new matrix
     """
     result = []
-    for i in xrange(0, m):
+    for i in range(0, m):
         result.append([])
-        for j in xrange(0, n):
+        for j in range(0, n):
             result[i].append(value)
     return result
 
@@ -261,8 +256,8 @@ def is_row_echelon_form(matrix):
     p = 0
     m = len(matrix)
     n = len(matrix[0])
-    for i in xrange(0, m):
-        for j in xrange(0, n):
+    for i in range(0, m):
+        for j in range(0, n):
             if j >= p:
                 value = matrix[i][j]
                 if value == 0.0 or value == 1.0:
@@ -281,7 +276,7 @@ def is_square(matrix):
     It does so only by verifying that length of the entire matrix is equal to the length of the first row
     """
     m = len(matrix)
-    for i in xrange(0, m):
+    for i in range(0, m):
         n = len(matrix[i])
         if m is not n:
             return False
@@ -310,15 +305,15 @@ def multiply(a, b):
 
     n = len(b[0])
     columns = []
-    for i in xrange(0, n):
+    for i in range(0, n):
         columns.append(get_column(b, i))
 
     m = len(a)
     n = len(columns)
     result = []
-    for i in xrange(0, m):
+    for i in range(0, m):
         result.append([])
-        for j in xrange(0, n):
+        for j in range(0, n):
             result[i].append(multiply_row_by_column(a[i], columns[j]))
     return result 
 
@@ -333,7 +328,7 @@ def multiply_row_by_column(row, column):
     
     result = 0
     m = len(row)
-    for i in xrange(0, m):
+    for i in range(0, m):
         result += row[i] * column[i]
     return result
 
@@ -342,7 +337,7 @@ def partition(matrix, rows, cols):
     """
     Partitions a matrix
     """
-    print 'partition not implemented'
+    print('partition not implemented')
 
 
 def scale_by(matrix, scalar):
@@ -351,9 +346,9 @@ def scale_by(matrix, scalar):
     """
     result = clone(matrix) 
     m = len(result)
-    for i in xrange(0, m):
+    for i in range(0, m):
         n = len(result[i])
-        for j in xrange(0, n):
+        for j in range(0, n):
             result[i][j] *= scalar
     return result 
 
@@ -365,7 +360,7 @@ def scale_row(row, scalar):
     """
     result = []
     n = len(row)
-    for i in xrange(0, n):
+    for i in range(0, n):
        result.append(row[i] * scalar)
     return result 
 
@@ -374,7 +369,7 @@ def submatrix(matrix, r1, r2, c1, c2):
     """
     Returns a sub matrix of the supplied matrix
     """
-    print 'submatrix not implemented'
+    print('submatrix not implemented')
 
 
 def subtract_rows(a, b):
@@ -385,7 +380,7 @@ def subtract_rows(a, b):
     result = []
     
     n = len(a)
-    for i in xrange(0, n):
+    for i in range(0, n):
         result.append(a[i] - b[i])
     return result
 
@@ -409,7 +404,7 @@ def to_str(matrix):
     """
     result = ''
     m = len(matrix)
-    for i in xrange(0, m):
+    for i in range(0, m):
         result += str(matrix[i])
         if i < m - 1:
             result += '\n'

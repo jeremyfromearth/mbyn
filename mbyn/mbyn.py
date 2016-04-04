@@ -314,11 +314,11 @@ def multiply(a, b):
     for i in range(0, m):
         result.append([])
         for j in range(0, n):
-            result[i].append(multiply_row_by_column(a[i], columns[j]))
+            result[i].append(dot(a[i], columns[j]))
     return result 
 
 
-def multiply_row_by_column(row, column):
+def dot(row, column):
     """
     Multplies a row by a columns and returns a single value as the result
     Will return None if the row and column are not the same length

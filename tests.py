@@ -101,8 +101,8 @@ class MByNTests(unittest.TestCase):
         result = mbyn.multiply(A, B)
         self.assertEqual(result, [[10, 19, 18], [12, 24, 24]])
 
-    def test_multiply_row_by_column(self):
-        result = mbyn.multiply_row_by_column([2, 3, 4], [5, 6, 7])
+    def test_dot(self):
+        result = mbyn.dot([2, 3, 4], [5, 6, 7])
         self.assertEqual(result, 56)
 
     def test_scale_by(self):

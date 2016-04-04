@@ -318,18 +318,18 @@ def multiply(a, b):
     return result 
 
 
-def dot(row, column):
+def dot(a, b):
     """
     Multplies a row by a columns and returns a single value as the result
     Will return None if the row and column are not the same length
     """
-    if len(row) is not len(column):
+    if len(a) is not len(b):
         return None
     
     result = 0
-    m = len(row)
+    m = len(a)
     for i in range(0, m):
-        result += row[i] * column[i]
+        result += a[i] * b[i]
     return result
 
 
